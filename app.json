@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "koda",
+    "name": "Koda",
     "slug": "koda",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,12 @@
     "scheme": "koda",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.kodalogtech.driver",
+      "config": {
+        "usesNonExemptEncryption": false
+      },
+      "appleTeamId": "6YPQTNKLNU"
     },
     "android": {
       "adaptiveIcon": {
@@ -17,7 +22,8 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.kodalogtech.driver"
     },
     "web": {
       "output": "static",
@@ -28,11 +34,38 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "backgroundColor": "#F4F7F6"
         }
-      ]
+      ],
+      "expo-secure-store",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "O Koda usa sua localização precisa para registrar o início e acompanhar viagens ativas.",
+          "isIosBackgroundLocationEnabled": true,
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true,
+          "locationAlwaysAndWhenInUsePermission": "O Koda registra a localização durante a viagem ativa, inclusive com a tela apagada, para acompanhar a carga e suas leituras."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#309BDE",
+          "defaultChannel": "thermal-alerts"
+        }
+      ],
+      [
+        "react-native-ble-plx",
+        {
+          "isBackgroundEnabled": true,
+          "bluetoothAlwaysPermission": "O Koda usa Bluetooth para conectar ao sensor térmico da carga.",
+          "modes": [
+            "central"
+          ]
+        }
+      ],
+      "expo-sqlite"
     ],
     "experiments": {
       "typedRoutes": true,
